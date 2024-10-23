@@ -21,8 +21,7 @@ int predict_number(){
     do {
         choise_user = choise_number();
         if (choise_user == random_number){
-            printf("0");
-            printf("Parabens vc acertou!!!");
+            printf("Parabens vc acertou!!!\n");
             printf("Numero de tentativas %d", numero_tentativas);
             return 0;
         } else if (random_number < choise_user) {
