@@ -29,14 +29,30 @@ void p_vector(int n, int *vector){
     }
 }
 
+int testa_pa(int num_elements, int *v){
+    int r = v[1] - v[0];
+    for (int i = 1; i < num_elements; i++) {
+        if (v[i] != ( v[0] + i*r )){
+            return 0;
+        }
+    }
+    return r;
+}
 
 int main (void){
     int n;
     printf("Enter the value of n: ");
     scanf("%d", &n);
-    float vec[n];
+    int vec[n];
 
     read_vector(n, vec);
+    int r = testa_pa(n, vec);
+    if (r == 0){
+        printf("The sequence is not an arithmetic progression (PA).\n ");
+    } else {
+        printf("The commom difference of the PA is: %d\n", r);
+    }
+
 
     return 0;
 }
