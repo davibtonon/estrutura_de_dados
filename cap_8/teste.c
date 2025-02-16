@@ -10,8 +10,14 @@ void imprime_inv (char *s)
     }
 }
 
+void t(){
+//    char c = 97;
+
+    char c = 'a';
+    printf("%d %c \n", c, c);
+}
 int main(){
- imprime_inv("davi");
+ t();
 
  return 0;
 }
