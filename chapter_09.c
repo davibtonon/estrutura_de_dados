@@ -7,6 +7,7 @@ typedef struct point Point;
 typedef struct vetor Vetor;
 typedef struct circle Circle;
 typedef struct rectangle Rectangle;
+typedef struct student Student;
 
 void execute_exercise_9_1();
 void execute_exercise_9_2();
@@ -25,6 +26,16 @@ struct rectangle { float base, height; };
 struct circle {
     Point p;
     float radius;
+};
+
+struct student {
+    char nome[81];
+    char matricula[8];
+    char turma;
+    float p1;
+    float p2;
+    float p3;
+
 };
 
 int dentroRet (Point* v1, Point* v2, Point* p){
@@ -113,6 +124,18 @@ float length(int n, Point* V){
     return d;
 }
 
+void print_approved(int n, Student** classes){
+    for (int i = 0; i < n; i++) {
+        float mean = (classes[i] ->p1 + classes[i] -> p2 + classes[i] ->p3) / 3;
+
+        if(mean > 5){
+            printf("Name: %s\n", classes[i] -> nome);
+        }
+
+    }
+
+}
+
 void execute_exercise_9_1(){
     Point v1, v2, p;
     v1.x = 10;
@@ -197,15 +220,19 @@ void execute_exercise_9_4_b(){
 
 }
 
+void execute_exercise_9_5(){
+    Student a = {"Davi", "1425", 'A', 5.1, 6.8, 10.0};
+    Student* classes[] = {&a};
+    print_approved(1, classes);
 
+}
 
 int main(void){
     //struct ponto p;
    // printf("Digite as coordenadas do ponto (x, y): ");
     //scanf("%f %f", &p.x, &p.y);
     //printf("O ponto fornecido foi: (%2.f, %.2f)\n", p.x, p.y);
-    execute_exercise_9_4();
-    execute_exercise_9_4_b();
+    execute_exercise_9_5();
     return 0;
 
 }
